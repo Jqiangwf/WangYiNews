@@ -1,0 +1,56 @@
+//
+//  PrefixHeader.pch
+//  day11作业
+//
+//  Created by tarena07 on 16/9/13.
+//  Copyright © 2016年 tarena. All rights reserved.
+//
+
+#ifndef PrefixHeader_pch
+#define PrefixHeader_pch
+
+#import <UIKit/UIKit.h>
+#import <Foundation/Foundation.h>
+#import <YYKit.h>
+#import <MBProgressHUD.h>
+#import <BlocksKit.h>
+#import <AFNetworking.h>
+#import <UIKit+AFNetworking.h>
+#import <MLTransition.h>
+#import <MJRefresh.h>
+#define MAS_SHORTHAND_GLOBALS
+#import <Masonry.h>
+#import <BlocksKit+UIKit.h>
+
+#import "NSObject+Parse.h"
+#import "NewsModel.h"
+
+#import "NeteaseNewsCell.h"
+#import "NeteaseNews2Cell.h"
+#import "NSString+URLCategory.h"
+#import "NetManager.h"
+
+#import "AmusementModel.h"
+#import "RecommendModel.h"
+
+#import "UIImage+Extension.h"
+
+#import "UIBarButtonItem+Extension.h"
+
+#ifdef DEBUG//程序调试状态  打开Log功能
+#define KuGooLog(...) NSLog(__VA_ARGS__)
+#else//程序发布状态  关闭Log功能
+#define KuGooLog(...)
+#endif
+
+//随机色
+#define KuGooRandomColor [UIColor colorWithRed:arc4random_uniform(256)/255.0 green:arc4random_uniform(256)/255.0 blue:arc4random_uniform(256)/255.0 alpha:1]
+
+//是否是iOS7以上的系统
+#define iOS7  ([[UIDevice currentDevice].systemVersion doubleValue]>=7.0)
+
+
+
+
+
+#endif /* PrefixHeader_pch */
