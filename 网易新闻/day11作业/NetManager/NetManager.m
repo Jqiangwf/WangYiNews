@@ -16,7 +16,8 @@
 #define kAmusement @"http://c.m.163.com/nc/article/list/T1348648517839/%ld-20.html"
 //直播
 #define kLivePath @"http://data.live.126.net/livechannel/previewlist/%ld.json"
-
+//评论
+#define kDisscusPath @"http://data.chat.126.net/route_room?topicid=%ld"
 //精选
 @implementation NetManager
 +(id)getNewsModelPage:(NSInteger)page handler:(void (^)(NewsModel *, NSError *))handler{
@@ -43,5 +44,10 @@ return [self GET:[NSString stringWithFormat:kAmusement,page] parameters:nil hand
         !handler ?:handler([LiveModel parse:responseObj],error);
     }];
 }
-
+//评论
++(id)getDiscuss:(NSInteger)ID Handler:(void (^)(DiscussModel *, NSError *))handler{
+    return [self GET:[NSString stringWithFormat:kDisscusPath,ID] parameters:@{@"topicid":@(ID)} handler:^(id responseObj, NSError *error) {
+        !handler ?: handler([DiscussModel parse:responseObj],error);
+    }];
+}
 @end

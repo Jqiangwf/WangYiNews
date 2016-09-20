@@ -11,6 +11,7 @@
 #import "LiveModel.h"
 #import "NetManager.h"
 #import "FutureTableViewCell.h"
+#import "FutureTableViewController.h"
 
 @interface NeteaselIveViewController ()<UITableViewDataSource,UITableViewDelegate>
 @property(nonatomic)UITableView* tableView;
@@ -129,7 +130,17 @@
     cell.neteaTitle.text=model.roomName;
     return cell;
 }
-
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    if (indexPath.row == 0) {
+        FutureTableViewController *vc = [[FutureTableViewController alloc]init];
+        vc.dataList = self.futureDataList;
+        
+        [self.navigationController pushViewController:vc animated:YES];
+    }
+    
+    
+    
+}
 -(CGFloat)tableView:(UITableView *)tableView estimatedHeightForRowAtIndexPath:(NSIndexPath *)indexPath{
     return UITableViewAutomaticDimension;
 }

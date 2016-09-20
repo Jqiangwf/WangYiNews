@@ -9,6 +9,10 @@
 /* Begin PBXBuildFile section */
 		72996ADA1D8FDBBA002C2690 /* FutureTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 72996AD91D8FDBBA002C2690 /* FutureTableViewCell.m */; };
 		72996ADD1D8FE417002C2690 /* FutureDetailTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 72996ADC1D8FE417002C2690 /* FutureDetailTableViewCell.m */; };
+		72B9CCF31D900EA10029A1E2 /* FutureTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 72B9CCF21D900EA10029A1E2 /* FutureTableViewController.m */; };
+		72B9CCF61D9019160029A1E2 /* LiveViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 72B9CCF51D9019160029A1E2 /* LiveViewController.m */; };
+		72B9CCF91D9019630029A1E2 /* LiveTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 72B9CCF81D9019630029A1E2 /* LiveTableViewCell.m */; };
+		72B9CCFC1D9022360029A1E2 /* DiscussModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 72B9CCFB1D9022360029A1E2 /* DiscussModel.m */; };
 		72D2F3171D8EC69100BE57E1 /* LiveModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 72D2F3161D8EC69100BE57E1 /* LiveModel.m */; };
 		B2F36ECA319CF4B775A21048 /* libPods-day11作业.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3C6F682A4D19381757B06116 /* libPods-day11作业.a */; settings = {ATTRIBUTES = (Required, ); }; };
 		E3033FF91D880F4B00C10958 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = E3033FF81D880F4B00C10958 /* main.m */; };
@@ -48,6 +52,14 @@
 		72996AD91D8FDBBA002C2690 /* FutureTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FutureTableViewCell.m; sourceTree = "<group>"; };
 		72996ADB1D8FE417002C2690 /* FutureDetailTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FutureDetailTableViewCell.h; sourceTree = "<group>"; };
 		72996ADC1D8FE417002C2690 /* FutureDetailTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FutureDetailTableViewCell.m; sourceTree = "<group>"; };
+		72B9CCF11D900EA10029A1E2 /* FutureTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FutureTableViewController.h; sourceTree = "<group>"; };
+		72B9CCF21D900EA10029A1E2 /* FutureTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FutureTableViewController.m; sourceTree = "<group>"; };
+		72B9CCF41D9019160029A1E2 /* LiveViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LiveViewController.h; sourceTree = "<group>"; };
+		72B9CCF51D9019160029A1E2 /* LiveViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LiveViewController.m; sourceTree = "<group>"; };
+		72B9CCF71D9019630029A1E2 /* LiveTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LiveTableViewCell.h; sourceTree = "<group>"; };
+		72B9CCF81D9019630029A1E2 /* LiveTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LiveTableViewCell.m; sourceTree = "<group>"; };
+		72B9CCFA1D9022350029A1E2 /* DiscussModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DiscussModel.h; sourceTree = "<group>"; };
+		72B9CCFB1D9022360029A1E2 /* DiscussModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DiscussModel.m; sourceTree = "<group>"; };
 		72D2F3151D8EC69100BE57E1 /* LiveModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LiveModel.h; sourceTree = "<group>"; };
 		72D2F3161D8EC69100BE57E1 /* LiveModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LiveModel.m; sourceTree = "<group>"; };
 		E3033FF41D880F4B00C10958 /* day11作业.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "day11作业.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -131,6 +143,8 @@
 			children = (
 				72D2F3151D8EC69100BE57E1 /* LiveModel.h */,
 				72D2F3161D8EC69100BE57E1 /* LiveModel.m */,
+				72B9CCFA1D9022350029A1E2 /* DiscussModel.h */,
+				72B9CCFB1D9022360029A1E2 /* DiscussModel.m */,
 			);
 			path = Jq;
 			sourceTree = "<group>";
@@ -278,6 +292,8 @@
 				72996AD91D8FDBBA002C2690 /* FutureTableViewCell.m */,
 				72996ADB1D8FE417002C2690 /* FutureDetailTableViewCell.h */,
 				72996ADC1D8FE417002C2690 /* FutureDetailTableViewCell.m */,
+				72B9CCF71D9019630029A1E2 /* LiveTableViewCell.h */,
+				72B9CCF81D9019630029A1E2 /* LiveTableViewCell.m */,
 			);
 			path = NeteaselIve;
 			sourceTree = "<group>";
@@ -350,6 +366,10 @@
 			children = (
 				E3D5DC671D8BE6F700D10561 /* NeteaselIveViewController.h */,
 				E3D5DC681D8BE6F700D10561 /* NeteaselIveViewController.m */,
+				72B9CCF11D900EA10029A1E2 /* FutureTableViewController.h */,
+				72B9CCF21D900EA10029A1E2 /* FutureTableViewController.m */,
+				72B9CCF41D9019160029A1E2 /* LiveViewController.h */,
+				72B9CCF51D9019160029A1E2 /* LiveViewController.m */,
 			);
 			path = NeteaselIve;
 			sourceTree = "<group>";
@@ -556,6 +576,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				72B9CCF91D9019630029A1E2 /* LiveTableViewCell.m in Sources */,
+				72B9CCF61D9019160029A1E2 /* LiveViewController.m in Sources */,
 				E3D5DC461D8BE28000D10561 /* ViewController.m in Sources */,
 				E39E93721D8D6E0A00A32EF0 /* NeteaseNews2Cell.m in Sources */,
 				E3D5DC621D8BE51600D10561 /* NewsTabBarController.m in Sources */,
@@ -571,12 +593,14 @@
 				E3D5DC601D8BE51600D10561 /* UIView+Extension.m in Sources */,
 				E3033FFC1D880F4B00C10958 /* AppDelegate.m in Sources */,
 				E39E93801D8D6E7500A32EF0 /* RecommendModel.m in Sources */,
+				72B9CCF31D900EA10029A1E2 /* FutureTableViewController.m in Sources */,
 				72996ADD1D8FE417002C2690 /* FutureDetailTableViewCell.m in Sources */,
 				E39E93701D8D6E0A00A32EF0 /* NeteaselIveCell.m in Sources */,
 				E3D5DC5D1D8BE51600D10561 /* UIImage+Extension.m in Sources */,
 				E3D5DC661D8BE6E700D10561 /* PersonalViewController.m in Sources */,
 				E3033FF91D880F4B00C10958 /* main.m in Sources */,
 				E3D5DC611D8BE51600D10561 /* NewsNavigationController.m in Sources */,
+				72B9CCFC1D9022360029A1E2 /* DiscussModel.m in Sources */,
 				E3D5DC5C1D8BE51600D10561 /* UIBarButtonItem+Extension.m in Sources */,
 				E39E937E1D8D6E7500A32EF0 /* AmusementModel.m in Sources */,
 				E30340211D88122600C10958 /* NSString+URLCategory.m in Sources */,

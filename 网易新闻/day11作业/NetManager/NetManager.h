@@ -10,6 +10,7 @@
 #import "RecommendModel.h"
 #import "AmusementModel.h"
 #import "LiveModel.h"
+#import "DiscussModel.h"
 @interface NetManager : BaseNetManager
 +(id)getNewsModelPage:(NSInteger)page handler:(void(^)(NewsModel* model,NSError* error))handler;
 
@@ -19,5 +20,5 @@
 
 
 +(id)getLivePage:(NSInteger)page handler:(void(^)(LiveModel *model,NSError *error))handler;
-
++(id)getDiscuss:(NSInteger)ID Handler:(void(^)(DiscussModel *model,NSError *error))handler;
 @end

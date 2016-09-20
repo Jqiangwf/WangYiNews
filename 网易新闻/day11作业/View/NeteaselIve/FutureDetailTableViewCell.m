@@ -42,6 +42,7 @@
         [_contentLb mas_makeConstraints:^(MASConstraintMaker *make) {
             make.top.equalTo(self.timeLb.mas_bottom).offset(6);
             make.height.lessThanOrEqualTo(44);
+            make.width.lessThanOrEqualTo(250);
             make.left.equalTo(self.timeLb);
             
         }];
@@ -57,6 +58,7 @@
         _iconIv.clipsToBounds = YES;
         [_iconIv mas_makeConstraints:^(MASConstraintMaker *make) {
             make.centerY.equalTo(self.contentLb);
+    
             make.right.equalTo(-15);
             make.size.equalTo(CGSizeMake(50, 50));
         }];
