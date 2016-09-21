@@ -11,6 +11,7 @@
 #import "PersonalViewController.h"
 #import "NeteaselIveViewController.h"
 #import "ViewController.h"
+#import "NewsViewController.h"
 #import "TopicsViewController.h"
 @interface NewsTabBarController ()
 
@@ -18,23 +19,21 @@
 
 @implementation NewsTabBarController
 
-
-
-
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    ViewController* home=[[ViewController alloc]init];
-    [self addOneChildController:home title:@"新闻" imageName:@"night_tabbar_icon_news_normal" selectedImageName:@"night_tabbar_icon_news_highlight"];
+    NewsViewController* home=[[NewsViewController alloc]init];
+    
+    [self addOneChildController:home title:@"新闻" imageName:@"tabbar_icon_news_normal" selectedImageName:@"tabbar_icon_news_highlight"];
     
     NeteaselIveViewController* NeteaselIve=[[NeteaselIveViewController alloc]init];
-    [self addOneChildController:NeteaselIve title:@"直播" imageName:@"night_tabbar_icon_media_normal" selectedImageName:@"night_tabbar_icon_media_highlight"];
+    [self addOneChildController:NeteaselIve title:@"直播" imageName:@"tabbar_icon_media_normal" selectedImageName:@"tabbar_icon_media_highlight"];
     
     TopicsViewController* topics=[[TopicsViewController alloc]init];
-    [self addOneChildController:topics title:@"话题" imageName:@"night_tabbar_icon_bar_normal" selectedImageName:@"night_tabbar_icon_bar_highlight"];
+    [self addOneChildController:topics title:@"话题" imageName:@"tabbar_icon_bar_normal" selectedImageName:@"tabbar_icon_bar_highlight"];
     
     PersonalViewController* personal=[[PersonalViewController alloc]init];
-    [self addOneChildController:personal title:@"我" imageName:@"night_tabbar_icon_me_normal" selectedImageName:@"night_tabbar_icon_me_highlight"];
+    [self addOneChildController:personal title:@"我" imageName:@"tabbar_icon_me_normal" selectedImageName:@"tabbar_icon_me_highlight"];
     
 }
 
@@ -45,7 +44,7 @@
 
 
 -(void)addOneChildController:(UIViewController*)childViewController title:(NSString*)title imageName:(NSString*)imageName selectedImageName:(NSString*)selectedImageName{
-    childViewController.title=title;
+    childViewController.tabBarItem.title=title;
     childViewController.tabBarItem.image=[UIImage imageWithName:imageName];
     childViewController.tabBarItem.selectedImage=[[UIImage imageWithName:selectedImageName]imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
     NewsNavigationController* navi=[[NewsNavigationController alloc]initWithRootViewController:childViewController];

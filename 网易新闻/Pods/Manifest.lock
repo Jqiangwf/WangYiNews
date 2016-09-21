@@ -29,32 +29,38 @@ PODS:
   - BlocksKit/UIKit (2.2.5):
     - BlocksKit/Core
     - BlocksKit/DynamicDelegate
-  - Masonry (1.0.1)
+  - iCarousel (1.8.2)
+  - Masonry (1.0.2)
   - MBProgressHUD (1.0.0)
   - MJRefresh (3.1.12)
   - MLTransition (2.1.2)
-  - YYKit (1.0.8):
-    - YYKit/no-arc (= 1.0.8)
-  - YYKit/no-arc (1.0.8)
+  - WMPageController (1.9.4)
+  - YYKit (1.0.9):
+    - YYKit/no-arc (= 1.0.9)
+  - YYKit/no-arc (1.0.9)
 
 DEPENDENCIES:
   - AFNetworking
   - BlocksKit
+  - iCarousel
   - Masonry
   - MBProgressHUD
   - MJRefresh
   - MLTransition
+  - WMPageController
   - YYKit
 
 SPEC CHECKSUMS:
   AFNetworking: 5e0e199f73d8626b11e79750991f5d173d1f8b67
   BlocksKit: 7f422b971407001178d181a43b99014ea2591fe6
-  Masonry: a1a931a0d08870ed8ae415a2ea5ea68ebcac77df
+  iCarousel: 67c8a43da5a46795b56aadfc96cd36a16f6149b2
+  Masonry: 7c429b56da9d4ee0bbb3ed77a5ea710d6a5df39e
   MBProgressHUD: 4890f671c94e8a0f3cf959aa731e9de2f036d71a
   MJRefresh: b96cdb21c4aa75a7b07654311ab2f315c497e806
   MLTransition: 26751adac088c07e4df48c9f605cfdd767bb8afa
-  YYKit: 62d8102b333ac759a9a5c7ae9f01c9a9aef22071
+  WMPageController: b3b9a62af7fe9a5bd7286236a5c4071e41a90fc4
+  YYKit: 7cda43304a8dc3696c449041e2cb3107b4e236e7
 
-PODFILE CHECKSUM: b0093ffb2a2839924bc5b35b82246c68b6fcee73
+PODFILE CHECKSUM: 423b3308a1c804bb0cbb95b20532bef8935a6cc7
 
 COCOAPODS: 1.0.1

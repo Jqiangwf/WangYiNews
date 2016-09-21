@@ -9,6 +9,7 @@
 #import "FutureTableViewController.h"
 #import "FutureDetailTableViewCell.h"
 #import "LiveViewController.h"
+#import "PageController.h"
 @interface FutureTableViewController ()
 
 @end
@@ -51,10 +52,9 @@
     return cell;
 }
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
-    LiveViewController *lvc = [[LiveViewController alloc]init];
-    lvc.ID = self.dataList[indexPath.row].roomId;
-    [self.navigationController pushViewController:lvc animated:YES];
-//    [self presentViewController:lvc animated:YES completion:nil];
+    PageController *pc = [[PageController alloc]init];
+    pc.ID = self.dataList[indexPath.row].roomId;
+    [self.navigationController pushViewController:pc animated:YES];
 }
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
     return 100;

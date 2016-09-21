@@ -45,7 +45,7 @@
         [_contentLb mas_makeConstraints:^(MASConstraintMaker *make) {
             make.left.equalTo(self.futureLb.mas_right).offset(3);
             make.centerY.equalTo(0);
-            make.right.equalTo(self.countLb.mas_left).offset(-3);
+//            make.right.equalTo(self.countLb.mas_left).offset(-3);
         }];
     }
     return _contentLb;

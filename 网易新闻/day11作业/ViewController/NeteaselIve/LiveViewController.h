@@ -7,7 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
-
+#import "NetManager.h"
 @interface LiveViewController : UIViewController
 @property (nonatomic) NSInteger ID;
+-(id)initWithRoomID:(NSInteger)ID;
 @end

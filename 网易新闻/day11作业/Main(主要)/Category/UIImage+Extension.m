@@ -14,10 +14,10 @@
     UIImage* image=nil;
     if (iOS7) {
         NSString* newName=[name stringByAppendingString:@"_os7"];
-        image=[UIImage imageNamed:newName];
+        image=[[UIImage imageNamed:newName]imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
     }
     if (image==nil) {
-        image=[UIImage imageNamed:name];
+        image=[[UIImage imageNamed:name]imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
     }
     return image;
 }

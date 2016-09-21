@@ -12,22 +12,61 @@
 #import "NetManager.h"
 #import "FutureTableViewCell.h"
 #import "FutureTableViewController.h"
+#import "PageController.h"
 
-@interface NeteaselIveViewController ()<UITableViewDataSource,UITableViewDelegate>
+
+@interface NeteaselIveViewController ()<UITableViewDataSource,UITableViewDelegate,iCarouselDelegate,iCarouselDataSource>
 @property(nonatomic)UITableView* tableView;
-@property (nonatomic) UIScrollView *fView;
-@property (nonatomic) UIPageControl *pc;
+
 @property (nonatomic) LiveModel *model;
 @property (nonatomic) NSMutableArray *topDataList;
 @property (nonatomic) NSMutableArray *futureDataList;
 @property (nonatomic) NSMutableArray *reviewDataList;
 @property (nonatomic) NSInteger count;
 
-
+/***** tableViewHeader  *****/
+@property (nonatomic) iCarousel *ic;
+@property (nonatomic) UIView *headerView;
+@property (nonatomic) UIPageControl *pc;
+@property (nonatomic) UILabel *bottomLb;
+@property (nonatomic) NSArray<LiveTopModel *> *topList;
+@property (nonatomic) NSTimer *timer;
 @end
 
 @implementation NeteaselIveViewController
 
+#pragma mark - ic delegate
+
+-(NSInteger)numberOfItemsInCarousel:(iCarousel *)carousel{
+    return self.topList.count;
+}
+-(UIView *)carousel:(iCarousel *)carousel viewForItemAtIndex:(NSInteger)index reusingView:(UIView *)view{
+    if (!view) {
+        UIImageView *iv = [[UIImageView alloc]initWithFrame:carousel.bounds];
+        view = iv;
+    }
+    [(UIImageView*)view setImageURL:self.topList[index].image.lp_URL];
+    self.bottomLb.text = self.topList[index].roomName;
+    
+    return view;
+}
+- (void)carouselCurrentItemIndexDidChange:(iCarousel *)carousel{
+    self.pc.currentPage = carousel.currentItemIndex;
+}
+- (CGFloat)carousel:(iCarousel *)carousel valueForOption:(iCarouselOption)option withDefault:(CGFloat)value{
+    if (option == iCarouselOptionWrap) {
+        value = YES;
+    }
+    return value;
+}
+-(void)carousel:(iCarousel *)carousel didSelectItemAtIndex:(NSInteger)index{
+    PageController *pc = [[PageController alloc]init];
+    pc.ID = self.topList[index].roomId;
+    [self.navigationController pushViewController:pc animated:YES];
+}
+
+
+#pragma mark - navi
 -(void)setNavigationItem{
     UIView* view=[[UIView alloc]initWithFrame:CGRectMake(0, 0, 200, 30)];
     //    view.backgroundColor=[UIColor orangeColor];
@@ -46,7 +85,7 @@
 -(void)neteaselIvesegmented:(UISegmentedControl*)sender{
     //    NSLog(@"neteaselIve=%ld",sender.selectedSegmentIndex);
 }
-
+#pragma mark - life
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self setNavigationItem];
@@ -55,21 +94,35 @@
     [self.tableView registerClass:[FutureTableViewCell class] forCellReuseIdentifier:@"futureCell"];
     
     self.tableView.mj_header = [MJRefreshNormalHeader headerWithRefreshingBlock:^{
+        [self.timer invalidate];
         [NetManager getLivePage:1 handler:^(LiveModel *model, NSError *error) {
-            self.model = model;
-            _count = 1;
-            [self.topDataList removeAllObjects];
-            [self.futureDataList removeAllObjects];
-            [self.reviewDataList removeAllObjects];
-            
-            
-            [self.topDataList addObjectsFromArray:model.top];
-            [self fView];
-            [self.futureDataList addObjectsFromArray:model.future];
-            [self.reviewDataList addObjectsFromArray:model.live_review];
-            
-            [self.tableView reloadData];
-            [self.tableView.mj_header endRefreshing];
+            if (error) {
+                self.tableView.tableHeaderView = nil;
+            }else{
+                
+                self.tableView.tableHeaderView = self.headerView;
+                self.topList = model.top;
+                [self.ic reloadData];
+                self.pc.numberOfPages = self.topList.count;
+                
+                
+                self.model = model;
+                _count = 1;
+                [self.topDataList removeAllObjects];
+                [self.futureDataList removeAllObjects];
+                [self.reviewDataList removeAllObjects];
+                
+                
+                [self.topDataList addObjectsFromArray:model.top];
+                [self.futureDataList addObjectsFromArray:model.future];
+                [self.reviewDataList addObjectsFromArray:model.live_review];
+                
+                self.timer = [NSTimer bk_scheduledTimerWithTimeInterval:6 block:^(NSTimer *timer) {
+                    [self.ic scrollToItemAtIndex:self.ic.currentItemIndex + 1 duration:1.5];
+                } repeats:YES];
+                [self.tableView reloadData];
+                [self.tableView.mj_header endRefreshing];
+            }
         }];
         
         
@@ -113,10 +166,12 @@
     
     if (indexPath.row == 0) {
         FutureTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"futureCell" forIndexPath:indexPath];
-        cell.accessoryType = 1;
+        
         if (self.futureDataList.count){
+            cell.accessoryType = 1;
             cell.countLb.text = [NSString stringWithFormat:@"%ld场",self.futureDataList.count];
             cell.futureLb.text = @"预告 /";
+            cell.contentLb.text = @"       用直播，看新闻，不出门，识天下";
         }
         return cell;
     }
@@ -136,9 +191,13 @@
         vc.dataList = self.futureDataList;
         
         [self.navigationController pushViewController:vc animated:YES];
+    }else{
+        Live_ReviewModel *model = self.reviewDataList[indexPath.row - 1];
+        
+        PageController *pc = [[PageController alloc]init];
+        pc.ID = model.roomId;
+        [self.navigationController pushViewController:pc animated:YES];
     }
-    
-    
     
 }
 -(CGFloat)tableView:(UITableView *)tableView estimatedHeightForRowAtIndexPath:(NSIndexPath *)indexPath{
@@ -162,70 +221,6 @@
 }
 
 
-- (UIScrollView *)fView {
-    if(_fView == nil) {
-        UIView *bv = [[UIView alloc]initWithFrame:(CGRectMake(0, 0, [UIScreen mainScreen].bounds.size.width, [UIScreen mainScreen].bounds.size.width/2.5))];
-        self.tableView.tableHeaderView = bv;
-        
-        _fView = [[UIScrollView alloc] initWithFrame:(CGRectMake(0, 0, [UIScreen mainScreen].bounds.size.width, [UIScreen mainScreen].bounds.size.width/2.5))];
-        _fView.pagingEnabled = YES;
-        [bv addSubview:_fView];
-        UIImageView *lastIv = nil;
-        for (int i = 0 ; i < self.topDataList.count; i ++) {
-            
-            UIImageView *iconIv = [UIImageView new];
-            
-            [_fView addSubview:iconIv];
-            iconIv.contentMode = UIViewContentModeScaleAspectFill;
-            iconIv.clipsToBounds = YES;
-            [iconIv mas_makeConstraints:^(MASConstraintMaker *make) {
-                make.top.bottom.equalTo(0);
-                make.size.equalTo(_fView);
-                if (i == 0) {
-                    make.left.equalTo(0);
-                    
-                }else{
-                    make.left.equalTo(lastIv.mas_right);
-                }
-                if (i == 2) {
-                    make.right.equalTo(0);
-                    
-                }
-            }];
-            lastIv = iconIv;
-            
-            LiveTopModel *model = self.topDataList[i];
-            [iconIv setImageURL:model.image.lp_URL];
-            
-            
-            
-            UIView *v = [UIView new];
-            [bv addSubview:v];
-            v.backgroundColor = [UIColor colorWithWhite:0.000 alpha:0.370];
-            [v mas_makeConstraints:^(MASConstraintMaker *make) {
-                make.left.right.bottom.equalTo(0);
-                make.height.equalTo(20);
-                
-            }];
-            UILabel *titileLb = [UILabel new];
-            titileLb.text = model.roomName;
-            [v addSubview:titileLb];
-            titileLb.font = [UIFont systemFontOfSize:13];
-            titileLb.textColor = [UIColor whiteColor];
-            [titileLb mas_makeConstraints:^(MASConstraintMaker *make) {
-                make.centerY.equalTo(0);
-                make.centerX.equalTo(-_pc.bounds.size.width/2);
-            }];
-        }
-        [bv addSubview:_pc];
-        [_pc mas_makeConstraints:^(MASConstraintMaker *make) {
-            make.centerY.equalTo(0);
-            make.right.equalTo(4);
-        }];
-        
-    }
-    return _fView;
-}
 
 - (NSMutableArray *)reviewDataList {
     if(_reviewDataList == nil) {
@@ -241,13 +236,7 @@
     return _futureDataList;
 }
 
-- (UIPageControl *)pc {
-    if(_pc == nil) {
-        _pc = [[UIPageControl alloc] init];
-        
-    }
-    return _pc;
-}
+
 
 - (NSMutableArray *)topDataList {
     if(_topDataList == nil) {
@@ -256,5 +245,63 @@
     return _topDataList;
 }
 
+
+- (UIView *)headerView {
+    if(_headerView == nil) {
+        _headerView = [[UIView alloc] initWithFrame:(CGRectMake(0, 0, 0, self.tableView.width * 310 / 750))];
+        
+        _ic = [[iCarousel alloc] init];
+        [_headerView addSubview:_ic];
+        _ic.scrollSpeed = 0;
+        _ic.dataSource = self;
+        _ic.delegate = self;
+        [_ic mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.edges.equalTo(0);
+        }];
+        
+        UIView *bottomView = [UIView new];
+        [_headerView addSubview:bottomView];
+        bottomView.backgroundColor = [UIColor colorWithWhite:0.000 alpha:0.506];
+        [bottomView mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.bottom.left.right.equalTo(0);
+            make.height.equalTo(23);
+        }];
+        
+        _pc = [[UIPageControl alloc] init];
+        [bottomView addSubview:_pc];
+        _pc.userInteractionEnabled = NO;
+        [_pc mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.right.equalTo(0);
+            make.bottom.equalTo(3);
+        }];
+        
+        _bottomLb = [[UILabel alloc] init];
+        [bottomView addSubview:_bottomLb];
+        _bottomLb.textColor = [UIColor whiteColor];
+        _bottomLb.font = [UIFont systemFontOfSize:13];
+        [_bottomLb mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.centerY.equalTo(0);
+            make.centerX.equalTo(-self.pc.width/2);
+        }];
+        
+    }
+    return _headerView;
+}
+
+
+
+- (UIPageControl *)pc {
+    if(_pc == nil) {
+        _pc = [[UIPageControl alloc] init];
+    }
+    return _pc;
+}
+
+- (UILabel *)bottomLb {
+    if(_bottomLb == nil) {
+        _bottomLb = [[UILabel alloc] init];
+    }
+    return _bottomLb;
+}
 
 @end

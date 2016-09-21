@@ -10,6 +10,7 @@
 
 @interface ViewController : UIViewController
 
-
+@property(nonatomic)NewsPageEnum newsPageEnum;
+-(instancetype)initWithNewsPageEnum:(NewsPageEnum)newsPageEnum;
 @end
 

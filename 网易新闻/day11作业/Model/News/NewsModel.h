@@ -59,6 +59,8 @@
 
 @property (nonatomic, copy) NSString *imgsrc;
 
+@property (nonatomic, assign) NSInteger imgType;
+
 @property (nonatomic, assign) BOOL hasIcon;
 
 @property (nonatomic, copy) NSString *ename;

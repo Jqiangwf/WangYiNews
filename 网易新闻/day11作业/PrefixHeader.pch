@@ -21,12 +21,20 @@
 #define MAS_SHORTHAND_GLOBALS
 #import <Masonry.h>
 #import <BlocksKit+UIKit.h>
+#import <iCarousel.h>
+#import <WMPageController.h>
+
 
 #import "NSObject+Parse.h"
 #import "NewsModel.h"
 
+
+
 #import "NeteaseNewsCell.h"
 #import "NeteaseNews2Cell.h"
+#import "NeteaseNews3Cell.h"
+#import "NeteaseNews1Cell.h"
+
 #import "NSString+URLCategory.h"
 #import "NetManager.h"
 

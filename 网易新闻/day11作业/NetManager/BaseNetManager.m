@@ -20,6 +20,9 @@
 
 +(id)GET:(NSString *)path parameters:(NSDictionary *)parameters handler:(void (^)(id, NSError *))handler{
     AFHTTPSessionManager* manager=[AFHTTPSessionManager manager];
+    manager.responseSerializer.acceptableContentTypes = [NSSet setWithObjects:@"application/json",@"text/html", nil];
+    manager.requestSerializer.timeoutInterval = 30;
+
 return [manager GET:path parameters:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
     !handler?:handler(responseObject,nil);
 } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {

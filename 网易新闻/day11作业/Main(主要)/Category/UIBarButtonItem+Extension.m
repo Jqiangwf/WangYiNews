@@ -15,6 +15,9 @@
     UIButton* buttion=[UIButton buttonWithType:UIButtonTypeCustom];
     [buttion setBackgroundImage:[UIImage imageWithName:imageName] forState:UIControlStateNormal];
     [buttion setBackgroundImage:[UIImage imageWithName:highImageName] forState:UIControlStateHighlighted];
+    [buttion setTitle:@"返回"forState:UIControlStateNormal];
+    
+    [buttion setTitle:@"1" forState:UIControlStateNormal];
     [buttion addTarget:target action:action forControlEvents:UIControlEventTouchUpInside];
     buttion.size=buttion.currentBackgroundImage.size;
     return [[UIBarButtonItem alloc]initWithCustomView:buttion];
