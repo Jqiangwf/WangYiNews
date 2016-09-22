@@ -17,12 +17,14 @@
 @end
 
 @implementation ChairViewController
+#pragma mark - init
 -(id)initWithRoomID:(NSInteger)ID{
     if (self = [super init]) {
         self.roomID = ID;
     }
     return self;
 }
+#pragma mark - life
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self bottomView];
@@ -38,6 +40,7 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
+#pragma mark - tableView DataSource
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
     return self.model.messages.count;
 }
@@ -48,6 +51,7 @@
     cell.nickNameLb.text = mo.commentator.name;
     cell.contentLb.text = mo.msg.content;
     cell.backgroundColor = [UIColor clearColor];
+    [cell setImageWithCount:mo.images.count andModelList:mo.images];
     
     cell.timeLb.text = [mo.time substringWithRange:NSMakeRange(11, 5)];
     
@@ -60,6 +64,7 @@
     return UITableViewAutomaticDimension;
 }
 
+#pragma mark - lazy
 
 - (UITableView *)tableView {
     if(_tableView == nil) {

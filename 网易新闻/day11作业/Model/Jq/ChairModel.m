@@ -45,6 +45,9 @@
 +(NSDictionary<NSString *,id> *)modelCustomPropertyMapper{
     return @{@"ID":@"id"};
 }
++(NSDictionary<NSString *,id> *)modelContainerPropertyGenericClass{
+    return @{@"images" :[ChairMessageImagesModel class]};
+}
 @end
 
 

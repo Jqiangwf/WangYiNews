@@ -66,31 +66,13 @@
 }
 
 
-#pragma mark - navi
--(void)setNavigationItem{
-    UIView* view=[[UIView alloc]initWithFrame:CGRectMake(0, 0, 200, 30)];
-    //    view.backgroundColor=[UIColor orangeColor];
-    view.layer.cornerRadius=view.frame.size.height*0.5;
-    view.layer.masksToBounds=YES;
-    view.layer.borderWidth=1;
-    view.layer.borderColor=[UIColor whiteColor].CGColor ;
-    UISegmentedControl* seg=[[UISegmentedControl alloc]initWithItems:@[@"热门",@"分类"]];
-    seg.selectedSegmentIndex=0;
-    [seg addTarget:self action:@selector(neteaselIvesegmented:) forControlEvents:(UIControlEventValueChanged)];
-    
-    seg.frame=CGRectMake(0, 0, 200, 30);
-    [view addSubview:seg];
-    self.navigationItem.titleView =view;
-}
--(void)neteaselIvesegmented:(UISegmentedControl*)sender{
-    //    NSLog(@"neteaselIve=%ld",sender.selectedSegmentIndex);
-}
+
+
 #pragma mark - life
 - (void)viewDidLoad {
     [super viewDidLoad];
-    [self setNavigationItem];
     [self tableView];
-    
+    self.navigationController.navigationBar.barTintColor = [UIColor colorWithRed:0.816 green:0.102 blue:0.145 alpha:1.000];
     [self.tableView registerClass:[FutureTableViewCell class] forCellReuseIdentifier:@"futureCell"];
     
     self.tableView.mj_header = [MJRefreshNormalHeader headerWithRefreshingBlock:^{

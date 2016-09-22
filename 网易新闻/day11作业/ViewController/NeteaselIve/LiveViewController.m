@@ -17,6 +17,7 @@
 @end
 
 @implementation LiveViewController
+
 -(id)initWithRoomID:(NSInteger)ID{
     if (self = [super init]) {
         self.ID = ID;
@@ -24,6 +25,7 @@
     }
     return self;
 }
+#pragma mark - life
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self bottomView];
@@ -42,6 +44,7 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
+#pragma mark - tableViewDataSource
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
     return self.model.last_log.count;
 }
@@ -66,6 +69,7 @@
     return UITableViewAutomaticDimension;
 }
 
+#pragma mark - lazy
 
 - (UITableView *)tableView {
     if(_tableView == nil) {

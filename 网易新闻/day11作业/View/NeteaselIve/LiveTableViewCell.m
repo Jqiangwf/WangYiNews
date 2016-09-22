@@ -28,11 +28,12 @@
         [self.contentView addSubview:iv];
         [iv setImage:[UIImage imageNamed:@"圈"]];
         [iv mas_makeConstraints:^(MASConstraintMaker *make) {
-            make.left.equalTo(5);
+            make.left.equalTo(-5).priorityHigh();
             make.top.equalTo(15);
         }];
         
         UIView *view = [UIView new];
+        self.line = view;
         [self.contentView addSubview:view];
         view.backgroundColor = [UIColor colorWithWhite:0.902 alpha:1.000];
         [view mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -65,7 +66,7 @@
         _lowView.layer.borderColor = [UIColor colorWithWhite:0.811 alpha:1.000].CGColor;
         [_lowView mas_makeConstraints:^(MASConstraintMaker *make) {
             make.top.equalTo(self.timeLb.mas_bottom).offset(10);
-            make.left.equalTo(self.timeLb).offset(-20);
+            make.left.equalTo(10);
             make.right.equalTo(-10);
             make.bottom.equalTo(0);
         }];
@@ -106,12 +107,52 @@
         _contentLb.numberOfLines = 0;
         
         [_contentLb mas_makeConstraints:^(MASConstraintMaker *make) {
-            make.bottom.equalTo(-20).priorityHigh();
+            make.bottom.equalTo(-20).priorityMedium();
             make.top.equalTo(self.nickNameLb.mas_bottom).offset(10);
             make.right.lessThanOrEqualTo(-12);
             make.left.equalTo(12);
         }];
     }
     return _contentLb;
+}
+- (void)setImageWithCount:(NSInteger)count andModelList:(NSArray<ChairMessageImagesModel *> *)list{
+    UIImageView *lastIv = nil;
+    for (int i = 0; i < count; i++) {
+        
+        
+        
+        UIImageView *iv = [[UIImageView alloc]init];
+        [self.lowView addSubview:iv];
+        [iv setImageURL:list[i].fullSizeSrc.lp_URL];
+        iv.contentMode = UIViewContentModeScaleAspectFill;
+        iv.clipsToBounds = YES;
+        [iv mas_makeConstraints:^(MASConstraintMaker *make) {
+            
+            
+            make.top.equalTo(self.contentLb.mas_bottom).offset(10).priorityHigh();
+            make.bottom.equalTo(-10);
+            make.height.equalTo(140).priorityHigh();
+            //            make.height.equalTo(iv.width * [[list[i].fullSrcSize substringToIndex:2] doubleValue] / [[list[i].fullSrcSize substringFromIndex:4] doubleValue]);
+            //
+            if (i == 0) {
+                make.left.equalTo(5);
+                
+            }else{
+                make.left.equalTo(lastIv.mas_right).offset(2);
+                make.width.equalTo(lastIv);
+            }
+            if (i == count -1) {
+                
+                make.right.equalTo(-5);
+            }
+        }];
+        
+        
+        lastIv = iv;
+    }
+    
+    
+    
+    
 }
 @end

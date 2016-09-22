@@ -13,6 +13,7 @@
 #import "DiscussModel.h"
 #import "ChairModel.h"
 #import "SubjectModel.h"
+#import "CategoryModel.h"
 
 typedef NS_ENUM(NSInteger,NewsPageEnum) {
     HeadLine,JingXuan,Amusement,Sports,WanYiHao,BenDi,Video,Finance,Science,Car,Fashion,Photo,NeteaseLive,HotSpot,GenTie,House,RelaxedMoment,JOKE,JunShi,History,JiaJun,DuJia,Game,Health,Politics,Cartoon,DaDaQuWen,Lottery,Belle,Society,Running,ShuMa,NBA,Aviation,YSSong,Stock,ChineseFootball,InternationalFootball,CBA,Phone,BrainPower,YKT,TDGKK,Travel,DuShu,JiuXiang,Education,QinZi,BFGame,TDYingX,Emotion,Art,HaiWai,Blogs,Forum,MengCong
@@ -31,4 +32,5 @@ typedef NS_ENUM(NSInteger,NewsPageEnum) {
 +(id)getRoomID:(NSInteger)ID Handler:(void(^)(ChairModel *model,NSError *error))handler;
 
 +(id)getSubjectModelPage:(NSInteger)page handler:(void(^)(SubjectModel *model, NSError *error))handler;
++(id)getPage:(NSInteger)page andNum:(NSInteger)num handler:(void(^)(CategoryModel *model,NSError *error))handler;
 @end

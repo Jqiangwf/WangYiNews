@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		726C0C431D921778005DC803 /* LivePageControllerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 726C0C421D921778005DC803 /* LivePageControllerViewController.m */; };
+		726C0C461D9218BD005DC803 /* LiveCategoryTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 726C0C451D9218BD005DC803 /* LiveCategoryTableViewController.m */; };
 		72996ADA1D8FDBBA002C2690 /* FutureTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 72996AD91D8FDBBA002C2690 /* FutureTableViewCell.m */; };
 		72996ADD1D8FE417002C2690 /* FutureDetailTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 72996ADC1D8FE417002C2690 /* FutureDetailTableViewCell.m */; };
 		72A849AB1D913BE9003629E7 /* PageController.m in Sources */ = {isa = PBXBuildFile; fileRef = 72A849AA1D913BE9003629E7 /* PageController.m */; };
@@ -39,6 +41,8 @@
 		72B9CCF61D9019160029A1E2 /* LiveViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 72B9CCF51D9019160029A1E2 /* LiveViewController.m */; };
 		72B9CCF91D9019630029A1E2 /* LiveTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 72B9CCF81D9019630029A1E2 /* LiveTableViewCell.m */; };
 		72B9CCFC1D9022360029A1E2 /* DiscussModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 72B9CCFB1D9022360029A1E2 /* DiscussModel.m */; };
+		72BB0F0B1D92A73F00C9421A /* CategoryCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 72BB0F0A1D92A73F00C9421A /* CategoryCollectionViewCell.m */; };
+		72BB0F0E1D92BFE500C9421A /* CategoryModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 72BB0F0D1D92BFE500C9421A /* CategoryModel.m */; };
 		72D2F3171D8EC69100BE57E1 /* LiveModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 72D2F3161D8EC69100BE57E1 /* LiveModel.m */; };
 		72E5FBEE1D90D6D300F46EB3 /* ChairModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 72E5FBED1D90D6D300F46EB3 /* ChairModel.m */; };
 		72E5FBF11D90E88D00F46EB3 /* ChairViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 72E5FBF01D90E88D00F46EB3 /* ChairViewController.m */; };
@@ -59,6 +63,10 @@
 		3C6F682A4D19381757B06116 /* libPods-day11作业.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-day11作业.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		3D3900EFC69BA2C3850EF650 /* Pods-day11作业.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-day11作业.release.xcconfig"; path = "Pods/Target Support Files/Pods-day11作业/Pods-day11作业.release.xcconfig"; sourceTree = "<group>"; };
 		46FC983074006FEC98F84D26 /* Pods-day11作业.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-day11作业.debug.xcconfig"; path = "Pods/Target Support Files/Pods-day11作业/Pods-day11作业.debug.xcconfig"; sourceTree = "<group>"; };
+		726C0C411D921778005DC803 /* LivePageControllerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LivePageControllerViewController.h; sourceTree = "<group>"; };
+		726C0C421D921778005DC803 /* LivePageControllerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LivePageControllerViewController.m; sourceTree = "<group>"; };
+		726C0C441D9218BD005DC803 /* LiveCategoryTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LiveCategoryTableViewController.h; sourceTree = "<group>"; };
+		726C0C451D9218BD005DC803 /* LiveCategoryTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LiveCategoryTableViewController.m; sourceTree = "<group>"; };
 		72996AD81D8FDBBA002C2690 /* FutureTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FutureTableViewCell.h; sourceTree = "<group>"; };
 		72996AD91D8FDBBA002C2690 /* FutureTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FutureTableViewCell.m; sourceTree = "<group>"; };
 		72996ADB1D8FE417002C2690 /* FutureDetailTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FutureDetailTableViewCell.h; sourceTree = "<group>"; };
@@ -123,6 +131,10 @@
 		72B9CCF81D9019630029A1E2 /* LiveTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LiveTableViewCell.m; sourceTree = "<group>"; };
 		72B9CCFA1D9022350029A1E2 /* DiscussModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DiscussModel.h; sourceTree = "<group>"; };
 		72B9CCFB1D9022360029A1E2 /* DiscussModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DiscussModel.m; sourceTree = "<group>"; };
+		72BB0F091D92A73F00C9421A /* CategoryCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CategoryCollectionViewCell.h; sourceTree = "<group>"; };
+		72BB0F0A1D92A73F00C9421A /* CategoryCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CategoryCollectionViewCell.m; sourceTree = "<group>"; };
+		72BB0F0C1D92BFE500C9421A /* CategoryModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CategoryModel.h; sourceTree = "<group>"; };
+		72BB0F0D1D92BFE500C9421A /* CategoryModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CategoryModel.m; sourceTree = "<group>"; };
 		72D2F3151D8EC69100BE57E1 /* LiveModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LiveModel.h; sourceTree = "<group>"; };
 		72D2F3161D8EC69100BE57E1 /* LiveModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LiveModel.m; sourceTree = "<group>"; };
 		72E5FBEC1D90D6D300F46EB3 /* ChairModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChairModel.h; sourceTree = "<group>"; };
@@ -180,6 +192,8 @@
 				72B9CCFB1D9022360029A1E2 /* DiscussModel.m */,
 				72E5FBEC1D90D6D300F46EB3 /* ChairModel.h */,
 				72E5FBED1D90D6D300F46EB3 /* ChairModel.m */,
+				72BB0F0C1D92BFE500C9421A /* CategoryModel.h */,
+				72BB0F0D1D92BFE500C9421A /* CategoryModel.m */,
 			);
 			path = Jq;
 			sourceTree = "<group>";
@@ -329,6 +343,8 @@
 				72996ADC1D8FE417002C2690 /* FutureDetailTableViewCell.m */,
 				72B9CCF71D9019630029A1E2 /* LiveTableViewCell.h */,
 				72B9CCF81D9019630029A1E2 /* LiveTableViewCell.m */,
+				72BB0F091D92A73F00C9421A /* CategoryCollectionViewCell.h */,
+				72BB0F0A1D92A73F00C9421A /* CategoryCollectionViewCell.m */,
 			);
 			path = NeteaselIve;
 			sourceTree = "<group>";
@@ -421,6 +437,10 @@
 				72E5FBF01D90E88D00F46EB3 /* ChairViewController.m */,
 				72A849A91D913BE9003629E7 /* PageController.h */,
 				72A849AA1D913BE9003629E7 /* PageController.m */,
+				726C0C411D921778005DC803 /* LivePageControllerViewController.h */,
+				726C0C421D921778005DC803 /* LivePageControllerViewController.m */,
+				726C0C441D9218BD005DC803 /* LiveCategoryTableViewController.h */,
+				726C0C451D9218BD005DC803 /* LiveCategoryTableViewController.m */,
 			);
 			path = NeteaselIve;
 			sourceTree = "<group>";
@@ -643,13 +663,16 @@
 				72A849C31D917E8F003629E7 /* NeteaseNewsCell.m in Sources */,
 				E30340181D8811C300C10958 /* BaseNetManager.m in Sources */,
 				72996ADA1D8FDBBA002C2690 /* FutureTableViewCell.m in Sources */,
+				72BB0F0B1D92A73F00C9421A /* CategoryCollectionViewCell.m in Sources */,
 				72A849B41D917DB2003629E7 /* RecommendModel.m in Sources */,
+				726C0C431D921778005DC803 /* LivePageControllerViewController.m in Sources */,
 				72A849C11D917E8F003629E7 /* NeteaseNews2Cell.m in Sources */,
 				72D2F3171D8EC69100BE57E1 /* LiveModel.m in Sources */,
 				72A849DE1D917EDB003629E7 /* UIView+Extension.m in Sources */,
 				72A849DB1D917EDB003629E7 /* UIImage+Extension.m in Sources */,
 				E303402D1D88274900C10958 /* NetManager.m in Sources */,
 				E303401E1D8811FF00C10958 /* NSObject+Parse.m in Sources */,
+				726C0C461D9218BD005DC803 /* LiveCategoryTableViewController.m in Sources */,
 				72A849CC1D917EBC003629E7 /* AmusementViewController.m in Sources */,
 				72A849E71D917F4C003629E7 /* AppDelegate.m in Sources */,
 				72B9CCF31D900EA10029A1E2 /* FutureTableViewController.m in Sources */,
@@ -669,6 +692,7 @@
 				72A849E31D917EFA003629E7 /* NewsNavigationController.m in Sources */,
 				72A849BF1D917E8F003629E7 /* AmusementCell.m in Sources */,
 				E3D5DC691D8BE6F700D10561 /* NeteaselIveViewController.m in Sources */,
+				72BB0F0E1D92BFE500C9421A /* CategoryModel.m in Sources */,
 				72A849DD1D917EDB003629E7 /* UITableViewCell+Extension.m in Sources */,
 				72A849CE1D917EBC003629E7 /* NewsViewController.m in Sources */,
 				72A849ED1D917FFF003629E7 /* SubjectModel.m in Sources */,

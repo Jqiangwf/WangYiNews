@@ -13,10 +13,8 @@
 
 -(instancetype)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil{
     if (self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil]) {
-//        self.menuViewStyle = WMMenuViewStyleSegmented;
         self.menuViewLayoutMode = WMMenuViewLayoutModeCenter;
         self.menuBGColor = [UIColor whiteColor];
-        //        self.progressColor = [UIColor redColor];
     }
     return self;
 }

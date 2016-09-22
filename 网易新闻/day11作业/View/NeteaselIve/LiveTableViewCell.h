@@ -7,14 +7,14 @@
 //
 
 #import <UIKit/UIKit.h>
-
+#import "ChairModel.h"
 @interface LiveTableViewCell : UITableViewCell
 @property (nonatomic) UILabel *timeLb;
 @property (nonatomic) UIView *lowView;
 @property (nonatomic) UILabel *nickNameLb;
 @property (nonatomic) UILabel *contentLb;
-
-
+@property (nonatomic) UIView *line;
+-(void) setImageWithCount:(NSInteger)count andModelList:(NSArray<ChairMessageImagesModel *> *)list;
 
 
 @end

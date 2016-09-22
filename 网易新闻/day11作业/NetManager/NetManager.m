@@ -148,9 +148,8 @@
 //评论
 #define kDisscusPath @"http://data.chat.126.net/route_room?topicid=%ld"
 #define kChairPath @"http://data.live.126.net/liveAll/%ld.json"
-
-
-
+//分类
+#define  kCategoryPath @"http://data.live.126.net/livechannel/classify/%ld/%ld.json"
 
 
 //话题
@@ -420,7 +419,7 @@
 }
 //评论
 +(id)getID:(NSInteger)ID Handler:(void (^)(DiscussModel *, NSError *))handler{
-
+    
     return [self GET:[NSString stringWithFormat:kDisscusPath,ID] parameters:@{@"topicid":@(ID)} handler:^(id responseObj, NSError *error) {
         !handler ?: handler([DiscussModel parse:responseObj],error);
     }];
@@ -430,7 +429,13 @@
         !handler ?: handler([ChairModel parse:responseObj],error);
     }];
 }
-
+//分类
++(id)getPage:(NSInteger)page andNum:(NSInteger)num handler:(void (^)(CategoryModel *, NSError *))handler{
+    return [self GET:[NSString stringWithFormat:kCategoryPath,num,page] parameters:nil handler:^(id responseObj, NSError *error) {
+        
+        !handler ?: handler ([CategoryModel parse:responseObj],error);
+    }];
+}
 
 //话题
 +(id)getSubjectModelPage:(NSInteger)page handler:(void (^)(SubjectModel *, NSError *))handler{

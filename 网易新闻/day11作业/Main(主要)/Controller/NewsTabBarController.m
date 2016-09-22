@@ -9,7 +9,7 @@
 #import "NewsTabBarController.h"
 #import "NewsNavigationController.h"
 #import "PersonalViewController.h"
-#import "NeteaselIveViewController.h"
+#import "LivePageControllerViewController.h"
 #import "ViewController.h"
 #import "NewsViewController.h"
 #import "TopicsViewController.h"
@@ -26,8 +26,8 @@
     
     [self addOneChildController:home title:@"新闻" imageName:@"tabbar_icon_news_normal" selectedImageName:@"tabbar_icon_news_highlight"];
     
-    NeteaselIveViewController* NeteaselIve=[[NeteaselIveViewController alloc]init];
-    [self addOneChildController:NeteaselIve title:@"直播" imageName:@"tabbar_icon_media_normal" selectedImageName:@"tabbar_icon_media_highlight"];
+    LivePageControllerViewController *pvc = [[LivePageControllerViewController alloc]init];
+    [self addOneChildController:pvc title:@"直播" imageName:@"tabbar_icon_media_normal" selectedImageName:@"tabbar_icon_media_highlight"];
     
     TopicsViewController* topics=[[TopicsViewController alloc]init];
     [self addOneChildController:topics title:@"话题" imageName:@"tabbar_icon_bar_normal" selectedImageName:@"tabbar_icon_bar_highlight"];
