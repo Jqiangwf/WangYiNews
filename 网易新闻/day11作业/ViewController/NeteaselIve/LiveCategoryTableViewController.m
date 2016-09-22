@@ -134,12 +134,9 @@
         layout.minimumInteritemSpacing = 6;
         layout.itemSize = CGSizeMake(([UIScreen mainScreen].bounds.size.width - 8 * 2 - 6 * 4)/5, 30);
         layout.sectionInset = UIEdgeInsetsMake(10, 8, 10, 8);
-        _collectionView = [[UICollectionView alloc] initWithFrame:(CGRectMake(0, 0, 100, 100)) collectionViewLayout:layout];
-        [self.view addSubview:_collectionView];
-        [_collectionView mas_makeConstraints:^(MASConstraintMaker *make) {
-            make.left.right.top.equalTo(0);
-            make.height.equalTo(150);
-        }];
+        _collectionView = [[UICollectionView alloc] initWithFrame:(CGRectMake(0, 0, [UIScreen mainScreen].bounds.size.width, 150)) collectionViewLayout:layout];
+        self.tableView.tableHeaderView = _collectionView;
+
         _collectionView.delegate = self;
         _collectionView.dataSource = self;
         _collectionView.backgroundColor = [UIColor colorWithWhite:0.979 alpha:1.000];
@@ -163,8 +160,8 @@
         _tableView.delegate = self;
         _tableView.dataSource = self;
         [_tableView mas_makeConstraints:^(MASConstraintMaker *make) {
-            make.top.equalTo(self.collectionView.mas_bottom);
-            make.left.right.bottom.equalTo(0);
+
+            make.edges.equalTo(0);
             
         }];
     }
